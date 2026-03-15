@@ -19,9 +19,10 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'docker run -e CI=true ahmedelgerby/react-app npm run test'
+                sh 'docker run --rm -e CI=true node:18-alpine sh -c "cd /app && npm install && npm test"'
             }
         }
+
 
         stage('ZIP Application for Deployment') {
             steps {
