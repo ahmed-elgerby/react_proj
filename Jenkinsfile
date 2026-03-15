@@ -19,7 +19,8 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh 'docker run --rm -e CI=true node:18-alpine sh -c "cd /app && npm install && npm test"'
+                sh 'docker build -t ahmedelgerby/react-app-dev -f Dockerfile.dev .'                
+                sh 'docker run --rm -e CI=true ahmedelgerby/react-app-dev npm run test -- --watchAll=false'
             }
         }
 
