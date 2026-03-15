@@ -35,9 +35,7 @@ pipeline {
         stage('Deploy to AWS') {
             steps {
                 echo 'Deploying to AWS...'
-                withCredentials([usernamePassword(credentialsId: 'AWS Creds Now',
-                                                 usernameVariable: 'AWS_ACCESS_KEY_ID',
-                                                 passwordVariable: 'AWS_SECRET_ACCESS_KEY')]) {
+                withAWS(credentials: 'AWS Creds Now', region: "${REGION}") {
                     sh """
                         aws elasticbeanstalk create-application-version \
                             --application-name ${APP_NAME} \
@@ -51,9 +49,10 @@ pipeline {
                             --region ${REGION}
                     """
                 }
+
             }
         }
     }
 }
 
-//21
+//25
