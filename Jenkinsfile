@@ -3,10 +3,10 @@ pipeline{
 
     environment {
         // Set your AWS credentials stored in Jenkins credentials
-        AWS_ACCESS_KEY = credentials('secret.aws-access-key-id')   // Jenkins credential ID
-        AWS_SECRET_KEY = credentials('secret.aws-secret-access-key') // Jenkins credential ID
-        APP_NAME = 'myapp'
-        ENV_NAME = 'myenv'
+        AWS_ACCESS_KEY = credentials('secret.aws_access_key_id')   // Jenkins credential ID
+        AWS_SECRET_KEY = credentials('secret.aws_secret_access_key') // Jenkins credential ID
+        APP_NAME = 'React_Project'
+        ENV_NAME = 'ReactProject-env'
         REGION = 'us-east-1'
         DEPLOY_ZIP = 'deploy.zip'
     }
@@ -50,4 +50,4 @@ pipeline{
     }
 }
 
-//i am adding this line to test number 11
+//i am adding this line to test number 12
