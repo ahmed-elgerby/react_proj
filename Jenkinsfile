@@ -1,5 +1,5 @@
 pipeline{
-    agent any
+    agent { label 'docker' }
 
     environment {
         // Set your AWS credentials stored in Jenkins credentials
